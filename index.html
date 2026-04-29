@@ -540,8 +540,8 @@ transform:none;
 Подтвердить присутствие
 </a>
 
-<button onclick="toggleMusic()" class="hero-btn">
-Включить нашу мелодию ♫
+<button onclick="toggleMusic()" class="hero-btn" id="musicBtn">
+♫ Наша мелодия
 </button>
 
 <audio id="song">
@@ -759,7 +759,46 @@ class="hero-btn">
 
 </section>
 
+<section id="gift" class="reveal">
 
+<div class="divider"><span>✦</span></div>
+
+<h2>Что подарить</h2>
+
+<p class="subtitle">
+Ваше присутствие — главный подарок для нас
+</p>
+
+<div class="grid2">
+
+<div class="card">
+<div class="roman">✦</div>
+<h3>Подарки</h3>
+
+<p>
+Если захотите порадовать нас подарком,
+мы будем благодарны вкладу
+в наши будущие мечты и путешествия
+</p>
+
+</div>
+
+
+<div class="card">
+<div class="roman">✦</div>
+<h3>Цветы</h3>
+
+<p>
+Просим не дарить цветы —
+вместо этого можно заменить их
+бутылкой вина для нашей семейной коллекции
+</p>
+
+</div>
+
+</div>
+
+</section>
 
 <section id="rsvp" class="reveal">
 <div class="divider"><span>✦</span></div>
@@ -778,6 +817,47 @@ style="width:100%;height:1500px;border:none;">
 
 </section>
 
+</section>
+
+
+
+<section id="message" class="reveal">
+
+<div class="divider"><span>✦</span></div>
+
+<h2>Дорогие гости</h2>
+
+<div class="card" style="
+max-width:700px;
+margin:auto;
+padding:70px 60px;
+">
+
+<p style="
+font-size:22px;
+line-height:1.9;
+font-family:var(--serif);
+">
+
+Мы очень счастливы разделить этот день
+с самыми близкими людьми.
+
+Спасибо, что будете рядом,
+будете смеяться,
+обнимать нас
+и проживать этот момент вместе.
+
+Для нас это бесценно ✦
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<footer>
 
 <footer>
 <h3>Анастасия & Сергей</h3>
@@ -812,10 +892,14 @@ setInterval(timer,1000);
 const music=document.getElementById('song');
 
 function toggleMusic(){
+const btn=document.getElementById('musicBtn');
+
 if(music.paused){
 music.play();
+btn.innerHTML='❚❚ Пауза';
 }else{
 music.pause();
+btn.innerHTML='♫ Наша мелодия';
 }
 }
 
