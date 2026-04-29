@@ -464,6 +464,19 @@ visibility:hidden;
 pointer-events:none;
 }
 }
+
+/* плавное появление секций */
+
+.reveal{
+opacity:0;
+transform:translateY(45px);
+transition:1.2s ease;
+}
+
+.reveal.show{
+opacity:1;
+transform:none;
+}
   
 </style>
 </head>
@@ -537,7 +550,7 @@ pointer-events:none;
 </section>
 
 
-<section id="story">
+<section id="story" class="reveal">
 <div class="divider"><span>✦</span></div>
 
 <h2>Наша история</h2>
@@ -582,7 +595,7 @@ pointer-events:none;
 </section>
 
 
-<section id="details">
+<section id="details" class="reveal">
 <div class="grid2">
 
 <div class="card">
@@ -626,7 +639,7 @@ pointer-events:none;
 
 
 
-<section id="info">
+<section id="info" class="reveal">
 
 <div class="divider"><span>✦</span></div>
 
@@ -656,7 +669,7 @@ pointer-events:none;
 
 
 
-<section id="chat">
+<section id="chat" class="reveal">
 
 <div class="divider"><span>✦</span></div>
 
@@ -717,7 +730,7 @@ class="hero-btn">
 </section>
 
 
-<section id="dress">
+<section id="dress" class="reveal">
 <div class="divider"><span>✦</span></div>
 
 <h2>Дресс-код</h2>
@@ -747,7 +760,7 @@ class="hero-btn">
 
 
 
-<section id="rsvp">
+<section id="rsvp" class="reveal">
 <div class="divider"><span>✦</span></div>
 
 <h2>Анкета гостя</h2>
