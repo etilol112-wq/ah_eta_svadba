@@ -325,7 +325,7 @@ color:#fff;
 
   .venue-card{
 display:grid;
-grid-template-columns:1.2fr 1fr;
+grid-template-columns:1.4fr 1fr;
 gap:60px;
 align-items:center;
 }
@@ -551,6 +551,34 @@ will-change:transform,opacity;
 opacity:1;
 transform:none;
 }
+
+.venue-text span{
+display:block;
+margin-top:10px;
+font-size:.82em;
+letter-spacing:.04em;
+}
+
+.venue-text a{
+margin-top:18px;
+}
+
+.venue-card{
+grid-template-columns:1.4fr 1fr;
+}
+
+.venue-photo{
+overflow:hidden;
+border-radius:10px;
+}
+
+.venue-photo img{
+transition:8s ease;
+}
+
+.venue-photo:hover img{
+transform:scale(1.06);
+}
   
 </style>
 </head>
@@ -673,8 +701,6 @@ transform:none;
 
 <div class="divider"><span>✦</span></div>
 
-<div class="divider"><span>✦</span></div>
-
 <h2>Место проведения</h2>
 
 <div class="venue-card">
@@ -685,7 +711,10 @@ transform:none;
 
 <div class="venue-text">
 
-<h3>Лесная ул., 3<br>Колмогорово</h3>
+<h3>
+Лесная ул., 3
+<span>Колмогорово</span>
+</h3>
 
 <p>
 Церемония и праздничный ужин
