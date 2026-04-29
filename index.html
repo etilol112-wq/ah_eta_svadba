@@ -59,7 +59,7 @@ nav a:hover{color:var(--gold)}
 section{
 max-width:840px;
 margin:auto;
-padding:90px 24px;
+padding:60px 24px;
 position:relative;
 z-index:1;
 }
@@ -184,7 +184,7 @@ display:flex;
 align-items:center;
 gap:20px;
 max-width:320px;
-margin:0 auto 55px;
+margin:0 auto 35px;
 }
 .divider:before,.divider:after{
 content:"";
@@ -278,9 +278,16 @@ gap:22px;
 }
 .info-card{
 background:var(--warm);
-padding:32px 24px;
+padding:42px 32px;
 text-align:center;
+transition:.35s ease;
 }
+
+.info-card:hover{
+transform:translateY(-6px);
+box-shadow:0 16px 35px rgba(48,24,7,.08);
+}
+
 .info-card h3{
 font-family:var(--serif);
 margin-bottom:10px;
@@ -597,7 +604,7 @@ transform:scale(1.06);
 <a href="#story">История</a>
 <a href="#details">Детали</a>
 <a href="#dress">Дресс-код</a>
-<a href="#rsvp">RSVP</a>
+<a href="#rsvp">Подтвердить</a>
 </nav>
 
 <section class="hero">
@@ -797,7 +804,9 @@ welcome-зона,<br>
 <div class="info">
 
 <div class="info-card">
+<div class="roman">✦</div>
 <h3>Трансфер</h3>
+
 <p>
 12:30<br>
 Место сбора сообщим дополнительно
@@ -805,7 +814,9 @@ welcome-зона,<br>
 </div>
 
 <div class="info-card">
+<div class="roman">✦</div>
 <h3>Парковка</h3>
+
 <p>
 Для гостей на авто
 предусмотрена парковка
