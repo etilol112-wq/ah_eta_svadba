@@ -33,43 +33,6 @@ line-height:1.7;
 overflow-x:hidden;
 }
 
-/* floating light particles */
-
-.petals{
-position:fixed;
-inset:0;
-pointer-events:none;
-overflow:hidden;
-z-index:0;
-}
-
-.petal{
-position:absolute;
-
-width:7px;
-height:7px;
-border-radius:50%;
-
-background:rgba(184,155,106,.55);
-box-shadow:0 0 18px rgba(184,155,106,.45);
-
-animation:float linear infinite;
-opacity:.7;
-}
-
-@keyframes float{
-0%{
-transform:translate(0,0);
-}
-
-50%{
-transform:translate(40px,-30px);
-}
-
-100%{
-transform:translate(0,0);
-}
-}
 
 /* nav */
 nav{
@@ -514,7 +477,6 @@ pointer-events:none;
   </div>
 </div>
 
-<div class="petals" id="petals"></div>
 
 <nav>
 <a href="#story">История</a>
@@ -857,33 +819,6 @@ for(let i=0;i<18;i++){
 let p=document.createElement('div');
 
 p.className='petal';
-/* floating particles */
-
-const petals=document.getElementById('petals');
-
-for(let i=0;i<22;i++){
-
-let p=document.createElement('div');
-
-p.className='petal';
-
-p.style.left=Math.random()*100+'vw';
-p.style.top=Math.random()*100+'vh';
-
-p.style.animationDuration=
-(8+Math.random()*12)+'s';
-
-p.style.animationDelay=
-(Math.random()*6)+'s';
-
-let size=4+Math.random()*8;
-
-p.style.width=size+'px';
-p.style.height=size+'px';
-
-petals.appendChild(p);
-
-}
 
 p.style.animationDelay=
 (Math.random()*8)+'s';
