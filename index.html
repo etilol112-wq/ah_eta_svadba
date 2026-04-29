@@ -9,6 +9,40 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
+  /* чат гостей */
+#chat{
+text-align:center;
+}
+
+#chat .grid2{
+max-width:760px;
+margin:0 auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:32px;
+align-items:stretch;
+}
+
+#chat .card{
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+min-height:420px;
+}
+
+#chat .card p{
+flex-grow:1;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+#chat .hero-btn{
+margin-top:30px;
+align-self:center;
+min-width:190px;
+text-align:center;
+}
 *{margin:0;padding:0;box-sizing:border-box}
 
 :root{
