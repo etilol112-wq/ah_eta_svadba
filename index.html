@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box}
 
 :root{
 --cream:#faf7f2;
@@ -22,7 +22,7 @@
 --sans:'Jost',sans-serif;
 }
 
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth}
 
 body{
 background:var(--cream);
@@ -30,21 +30,41 @@ color:var(--text);
 font-family:var(--sans);
 font-weight:300;
 line-height:1.7;
+overflow-x:hidden;
 }
 
+/* falling petals */
+.petals{
+position:fixed;
+inset:0;
+pointer-events:none;
+overflow:hidden;
+z-index:0;
+}
+.petal{
+position:absolute;
+top:-60px;
+opacity:.65;
+animation:fall linear infinite;
+}
+@keyframes fall{
+0%{transform:translateY(-60px) rotate(0deg)}
+100%{transform:translateY(110vh) translateX(120px) rotate(360deg)}
+}
+
+/* nav */
 nav{
 position:fixed;
 top:0;left:0;right:0;
 display:flex;
 justify-content:center;
-gap:30px;
+gap:28px;
 padding:22px;
-background:rgba(250,247,242,.95);
-backdrop-filter:blur(10px);
+background:rgba(250,247,242,.92);
+backdrop-filter:blur(8px);
 z-index:100;
-border-bottom:1px solid rgba(184,155,106,.15);
+border-bottom:1px solid rgba(184,155,106,.18);
 }
-
 nav a{
 text-decoration:none;
 font-size:11px;
@@ -52,15 +72,17 @@ letter-spacing:.16em;
 text-transform:uppercase;
 color:var(--muted);
 }
-
 nav a:hover{color:var(--gold)}
 
 section{
-max-width:860px;
+max-width:840px;
 margin:auto;
-padding:95px 24px;
+padding:90px 24px;
+position:relative;
+z-index:1;
 }
 
+/* hero */
 .hero{
 min-height:100vh;
 display:flex;
@@ -72,10 +94,10 @@ padding-top:80px;
 }
 
 .hero-line{
-height:90px;
 width:1px;
+height:90px;
 background:linear-gradient(transparent,var(--gold));
-margin-bottom:30px;
+margin-bottom:32px;
 }
 
 .hero-label{
@@ -83,23 +105,23 @@ font-size:11px;
 letter-spacing:.25em;
 text-transform:uppercase;
 color:var(--gold);
-margin-bottom:20px;
+margin-bottom:22px;
 }
 
 .hero h1{
 font-family:var(--serif);
-font-size:clamp(4rem,9vw,7rem);
 font-weight:300;
-line-height:1;
+line-height:1.05;
+font-size:clamp(4rem,9vw,7rem);
 }
 
-.hero em{
+.hero h1 em{
 font-style:italic;
 color:var(--gold);
 }
 
 .hero-date{
-margin-top:26px;
+margin-top:24px;
 font-size:13px;
 letter-spacing:.18em;
 text-transform:uppercase;
@@ -109,17 +131,16 @@ color:var(--muted);
 .hero-btn{
 margin-top:24px;
 display:inline-block;
-border:1px solid var(--gold);
-padding:14px 34px;
 text-decoration:none;
-background:none;
+border:1px solid var(--gold);
+padding:14px 38px;
 color:var(--text);
-cursor:pointer;
+background:none;
 font-size:11px;
 letter-spacing:.18em;
 text-transform:uppercase;
+cursor:pointer;
 }
-
 .hero-btn:hover{
 background:var(--gold);
 color:white;
@@ -130,15 +151,12 @@ display:flex;
 gap:34px;
 margin-top:50px;
 }
-
 .cd{text-align:center}
-
 .num{
 font-family:var(--serif);
 font-size:46px;
 color:var(--gold);
 }
-
 .lab{
 font-size:10px;
 letter-spacing:.15em;
@@ -146,6 +164,7 @@ text-transform:uppercase;
 color:var(--muted);
 }
 
+/* titles */
 .divider{
 display:flex;
 align-items:center;
@@ -153,14 +172,12 @@ gap:20px;
 max-width:320px;
 margin:0 auto 55px;
 }
-
 .divider:before,.divider:after{
 content:"";
 flex:1;
 height:1px;
 background:var(--gold-light);
 }
-
 .divider span{
 font-size:28px;
 color:var(--gold);
@@ -168,138 +185,156 @@ color:var(--gold);
 
 h2{
 font-family:var(--serif);
-font-size:clamp(2rem,5vw,3.2rem);
 font-weight:300;
+font-size:clamp(2rem,5vw,3.2rem);
 text-align:center;
 margin-bottom:12px;
 }
-
 .subtitle{
 text-align:center;
 color:var(--muted);
 margin-bottom:50px;
 }
 
+/* story */
+.story{
+display:grid;
+gap:32px;
+}
+.story-item{
+display:grid;
+grid-template-columns:90px 1fr;
+gap:30px;
+padding-bottom:28px;
+border-bottom:1px solid rgba(184,155,106,.2);
+}
+.year{
+font-family:var(--serif);
+font-size:28px;
+color:var(--gold);
+text-align:right;
+}
+.story h3{
+font-family:var(--serif);
+font-size:28px;
+font-weight:400;
+margin-bottom:8px;
+}
+.story p{color:var(--muted)}
+
+/* cards */
 .grid2{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:30px;
+gap:32px;
 }
-
 .card{
 border:1px solid rgba(184,155,106,.3);
 padding:42px 32px;
 text-align:center;
 }
-
-.card h3{
-font-family:var(--serif);
-font-size:30px;
-margin-bottom:15px;
-}
-
-.roman{
+.card .roman{
 font-size:38px;
 font-family:var(--serif);
 color:var(--gold);
-margin-bottom:12px;
+margin-bottom:14px;
 }
-
+.card h3{
+font-family:var(--serif);
+font-size:30px;
+margin-bottom:12px;
+font-weight:400;
+}
 .tag{
 display:inline-block;
 margin-top:18px;
-padding:8px 16px;
 border:1px solid rgba(184,155,106,.4);
+padding:7px 16px;
 font-size:10px;
 letter-spacing:.15em;
 text-transform:uppercase;
 color:var(--gold);
 }
 
+/* info */
 .info{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:24px;
+gap:22px;
 }
-
 .info-card{
 background:var(--warm);
-padding:34px;
+padding:32px 24px;
 text-align:center;
 }
-
 .info-card h3{
 font-family:var(--serif);
-font-size:26px;
-margin-bottom:12px;
+margin-bottom:10px;
+font-size:24px;
 }
 
+/* palette */
 .palette{
-max-width:340px;
+max-width:420px;
 margin:40px auto 0;
 text-align:center;
 }
-
-.palette p{
-margin-bottom:18px;
-}
-
 .colors{
 display:flex;
 justify-content:center;
-gap:28px;
-margin:26px 0;
+gap:30px;
+margin:28px 0;
 }
-
 .dot{
-width:68px;
-height:68px;
-border-radius:50%;
+width:68px;height:68px;border-radius:50%;
 }
-
 .c1{background:#858b7d;}
 .c2{background:#a5b0c8;}
 .c3{background:#87639a;}
 
+/* route */
 .route{
 text-align:center;
 margin-top:50px;
 }
-
 .route a{
 display:inline-block;
-padding:15px 36px;
+padding:14px 34px;
 border:1px solid var(--gold);
 text-decoration:none;
 color:var(--text);
 }
-
 .route a:hover{
 background:var(--gold);
 color:#fff;
 }
 
+/* form iframe */
+.form-wrap{
+max-width:760px;
+margin:auto;
+}
 iframe{
 width:100%;
-height:1050px;
+height:1100px;
 border:none;
 background:white;
 }
 
+/* footer */
 footer{
-padding:70px 20px;
+padding:60px 20px;
 text-align:center;
 border-top:1px solid rgba(184,155,106,.2);
 }
-
 footer h3{
 font-family:var(--serif);
-font-size:48px;
-font-style:italic;
+font-size:46px;
 font-weight:300;
+font-style:italic;
 color:var(--gold);
+margin-bottom:8px;
 }
-
 .footer-joke{
 margin-top:18px;
 font-style:italic;
@@ -307,35 +342,31 @@ color:var(--muted);
 }
 
 @media(max-width:700px){
-.grid2,.info{
+.grid2,.info{grid-template-columns:1fr}
+nav{gap:16px}
+.story-item{
 grid-template-columns:1fr;
 }
-nav{
-gap:15px;
-}
-.countdown{
-gap:20px;
-}
+.year{text-align:left}
+.countdown{gap:18px}
 }
 </style>
 </head>
 <body>
 
+<div class="petals" id="petals"></div>
+
 <nav>
+<a href="#story">История</a>
 <a href="#details">Детали</a>
-<a href="#info">Гостям</a>
 <a href="#dress">Дресс-код</a>
 <a href="#rsvp">RSVP</a>
 </nav>
 
-
 <section class="hero">
-
 <div class="hero-line"></div>
 
-<div class="hero-label">
-Приглашают на свадьбу
-</div>
+<div class="hero-label">Приглашают на свадьбу</div>
 
 <h1>
 Стася<br>
@@ -374,7 +405,7 @@ gap:20px;
 </a>
 
 <button onclick="toggleMusic()" class="hero-btn">
-Нажми ♫
+Включить нашу мелодию ♫
 </button>
 
 <audio id="song">
@@ -384,9 +415,50 @@ gap:20px;
 </section>
 
 
+<section id="story">
+<div class="divider"><span>✦</span></div>
+
+<h2>Наша история</h2>
+
+<div class="story">
+
+<div class="story-item">
+<div class="year">Начало</div>
+<div>
+<h3>Первая встреча</h3>
+<p>
+С того дня между нами появилось что-то особенное —
+лёгкость, смех и ощущение, будто мы давно знали друг друга.
+</p>
+</div>
+</div>
+
+<div class="story-item">
+<div class="year">Любовь</div>
+<div>
+<h3>Наше время вместе</h3>
+<p>
+Путешествия, мечты, маленькие традиции и большие планы —
+так постепенно родилась наша семья.
+</p>
+</div>
+</div>
+
+<div class="story-item">
+<div class="year">2026</div>
+<div>
+<h3>День, который мы ждали</h3>
+<p>
+Теперь мы хотим разделить этот счастливый день с вами.
+</p>
+</div>
+</div>
+
+</div>
+</section>
+
 
 <section id="details">
-
 <div class="divider"><span>✦</span></div>
 
 <h2>Дата и место</h2>
@@ -400,22 +472,15 @@ gap:20px;
 
 <p>
 Лесная ул., 3, Колмогорово, Кемеровская обл.<br><br>
-
 Сбор гостей — 14:00<br>
 Начало церемонии — 14:30
 </p>
 
-<div class="tag">
-дресс-код пастель
+<div class="tag">дресс-код пастель</div>
 </div>
-
-</div>
-
 
 <div class="card">
-
 <div class="roman">II</div>
-
 <h3>Праздничный ужин</h3>
 
 <p>
@@ -424,14 +489,10 @@ gap:20px;
 до самой ночи
 </p>
 
-<div class="tag">
-будет очень весело
-</div>
+<div class="tag">будет очень весело</div>
 
 </div>
-
 </div>
-
 
 <div class="route">
 <a href="https://go.2gis.com/JjfuT" target="_blank">
@@ -444,7 +505,6 @@ gap:20px;
 
 
 <section id="info">
-
 <div class="divider"><span>✦</span></div>
 
 <h2>Информация гостям</h2>
@@ -467,13 +527,10 @@ gap:20px;
 </div>
 
 </div>
-
 </section>
 
 
-
 <section id="dress">
-
 <div class="divider"><span>✦</span></div>
 
 <h2>Дресс-код</h2>
@@ -491,7 +548,7 @@ gap:20px;
 </div>
 
 <p>
-Просим избегать розового цвета в одежде —
+Просим по возможности избегать розового цвета —
 он совпадает с цветовой гаммой ресторана
 </p>
 
@@ -502,24 +559,23 @@ gap:20px;
 
 
 <section id="rsvp">
-
 <div class="divider"><span>✦</span></div>
 
 <h2>Анкета гостя</h2>
-
 <p class="subtitle">
 Пожалуйста, ответьте до 1 июля 2026
 </p>
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd-placeholder/viewform?embedded=true">
-Загрузка…
+<div class="form-wrap">
+<iframe src="YOUR_GOOGLE_FORM_EMBED_LINK">
+Загрузка...
 </iframe>
+</div>
 
 </section>
 
 
 <footer>
-
 <h3>Стася & Сергей</h3>
 
 <p>08 августа 2026</p>
@@ -537,30 +593,60 @@ const wedding = new Date('2026-08-08T14:00:00');
 
 function timer(){
 const diff=wedding-Date.now();
-
 document.getElementById('d').textContent=Math.floor(diff/86400000);
 document.getElementById('h').textContent=
 String(Math.floor(diff%86400000/3600000)).padStart(2,'0');
-
 document.getElementById('m').textContent=
 String(Math.floor(diff%3600000/60000)).padStart(2,'0');
-
 document.getElementById('s').textContent=
 String(Math.floor(diff%60000/1000)).padStart(2,'0');
 }
-
-setInterval(timer,1000);
 timer();
+setInterval(timer,1000);
 
+
+/* музыка */
+const music=document.getElementById('song');
 
 function toggleMusic(){
-let music=document.getElementById("song");
-
 if(music.paused){
 music.play();
 }else{
 music.pause();
 }
+}
+
+/* первый клик на странице тоже запускает */
+document.addEventListener(
+'click',
+function firstPlay(){
+music.play().catch(()=>{});
+document.removeEventListener('click',firstPlay);
+},
+{once:true}
+);
+
+
+/* лепестки */
+const petals=document.getElementById('petals');
+
+for(let i=0;i<18;i++){
+let p=document.createElement('div');
+
+p.className='petal';
+p.innerHTML='❀';
+
+p.style.left=Math.random()*100+'vw';
+p.style.animationDuration=
+(8+Math.random()*10)+'s';
+
+p.style.animationDelay=
+(Math.random()*8)+'s';
+
+p.style.fontSize=
+(18+Math.random()*20)+'px';
+
+petals.appendChild(p);
 }
 </script>
 
