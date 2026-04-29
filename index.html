@@ -33,7 +33,8 @@ line-height:1.7;
 overflow-x:hidden;
 }
 
-/* falling petals */
+/* floating light particles */
+
 .petals{
 position:fixed;
 inset:0;
@@ -41,15 +42,33 @@ pointer-events:none;
 overflow:hidden;
 z-index:0;
 }
+
 .petal{
 position:absolute;
-top:-60px;
-opacity:.65;
-animation:fall linear infinite;
+
+width:7px;
+height:7px;
+border-radius:50%;
+
+background:rgba(184,155,106,.55);
+box-shadow:0 0 18px rgba(184,155,106,.45);
+
+animation:float linear infinite;
+opacity:.7;
 }
-@keyframes fall{
-0%{transform:translateY(-60px) rotate(0deg)}
-100%{transform:translateY(110vh) translateX(120px) rotate(360deg)}
+
+@keyframes float{
+0%{
+transform:translate(0,0);
+}
+
+50%{
+transform:translate(40px,-30px);
+}
+
+100%{
+transform:translate(0,0);
+}
 }
 
 /* nav */
@@ -785,7 +804,7 @@ style="width:100%;height:1500px;border:none;">
 
 
 <footer>
-<h3>Стася & Сергей</h3>
+<h3>Анастасия & Сергей</h3>
 
 <p>08 августа 2026</p>
 
@@ -795,13 +814,6 @@ style="width:100%;height:1500px;border:none;">
 </div>
 
 </footer>
-  
-/* заставка только один раз */
-if(sessionStorage.getItem('introPlayed')){
-document.getElementById('intro').style.display='none';
-}else{
-sessionStorage.setItem('introPlayed','yes');
-}
 
 <script>
 const wedding = new Date('2026-08-08T14:00:00');
@@ -845,11 +857,33 @@ for(let i=0;i<18;i++){
 let p=document.createElement('div');
 
 p.className='petal';
-p.innerHTML='❀';
+/* floating particles */
+
+const petals=document.getElementById('petals');
+
+for(let i=0;i<22;i++){
+
+let p=document.createElement('div');
+
+p.className='petal';
 
 p.style.left=Math.random()*100+'vw';
+p.style.top=Math.random()*100+'vh';
+
 p.style.animationDuration=
-(8+Math.random()*10)+'s';
+(8+Math.random()*12)+'s';
+
+p.style.animationDelay=
+(Math.random()*6)+'s';
+
+let size=4+Math.random()*8;
+
+p.style.width=size+'px';
+p.style.height=size+'px';
+
+petals.appendChild(p);
+
+}
 
 p.style.animationDelay=
 (Math.random()*8)+'s';
