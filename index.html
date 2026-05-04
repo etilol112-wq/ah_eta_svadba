@@ -696,6 +696,46 @@ transition:all .8s ease;
 opacity:1;
 transform:none;
 }
+
+/* ===== УДОБСТВО ЧТЕНИЯ ===== */
+
+p{
+  font-size:16px;
+}
+
+.subtitle{
+  font-size:15px;
+}
+
+.card p,
+.info-card p,
+.chat-card p{
+  font-size:16px;
+}
+
+.hero-date{
+  font-size:14px;
+}
+
+/* 📱 мобильная версия */
+@media(max-width:700px){
+
+  p{
+    font-size:17px;
+    line-height:1.8;
+  }
+
+  .card p,
+  .info-card p,
+  .chat-card p{
+    font-size:17px;
+  }
+
+  .subtitle{
+    font-size:16px;
+  }
+
+}
   
 </style>
 </head>
@@ -1021,66 +1061,27 @@ class="hero-btn">
 
 <div class="grid2">
 
-<div class="card">
-<div class="roman">✦</div>
-<h3>Подарки</h3>
+  <div class="card">
+    ...
+  </div>
 
-<p>
-Если захотите порадовать нас подарком,
-мы будем благодарны вкладу
-в наши будущие мечты и путешествия
-</p>
+  <div class="card">
+    ...
+  </div>
 
 </div>
 
-
-<div class="card">
-<div class="roman">✦</div>
-<h3>Цветы</h3>
-
-<p>
-Просим не дарить цветы —
-вместо этого можно заменить их
-бутылкой вина для нашей семейной коллекции
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="reveal">
+<!-- ВСТАВЛЯЕМ СЮДА ↓↓↓ -->
 
 <div class="divider"><span>✦</span></div>
 
 <h2>Для тех, кто готовит магию ✦</h2>
 
-<div class="card" style="
-max-width:700px;
-margin:auto;
-padding:70px 60px;
-">
+<div class="card" style="max-width:700px; margin:auto; padding:70px 60px;">
 
-<p style="
-font-family:var(--serif);
-font-size:22px;
-line-height:1.8;
-">
-
-Если вы задумали поздравление,
-сюрприз или творческий подарок для нас —
-нам будет очень приятно.
-
-Чтобы всё прошло красиво
-и в нужный момент,
-можно заранее связаться
-с нашей ведущей Олесей:
-
-<br><br>
-
+<p style="font-family:var(--serif); font-size:22px; line-height:1.8;">
+Если вы задумали поздравление...
 <strong>+7 905 071 0791</strong>
-
 </p>
 
 <a href="tel:+79050710791" class="hero-btn">
