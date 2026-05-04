@@ -69,14 +69,29 @@ color: var(--gold);
 position: relative;
 }
 
-nav a.active::after{
-content:"";
-position:absolute;
-left:0;
-right:0;
-bottom:-6px;
-height:1px;
+nav a{
+text-decoration:none;
+font-size:11px;
+letter-spacing:.16em;
+text-transform:uppercase;
+color:var(--muted);
+padding:8px 14px;
+border-radius:6px;
+
+transition: all .35s ease;
+}
+
+/* наведение */
+nav a:hover{
+background:rgba(48,24,7,.08);
+color:var(--gold);
+}
+
+/* активный пункт */
+nav a.active{
 background:var(--gold);
+color:#fff;
+box-shadow:0 0 12px rgba(48,24,7,.15);
 }
   
 nav a:hover{color:var(--gold)}
