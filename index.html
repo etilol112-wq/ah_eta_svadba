@@ -54,6 +54,31 @@ letter-spacing:.16em;
 text-transform:uppercase;
 color:var(--muted);
 }
+
+nav a{
+text-decoration:none;
+font-size:11px;
+letter-spacing:.16em;
+text-transform:uppercase;
+color:var(--muted);
+transition: all .3s ease;
+}
+
+nav a.active{
+color: var(--gold);
+position: relative;
+}
+
+nav a.active::after{
+content:"";
+position:absolute;
+left:0;
+right:0;
+bottom:-6px;
+height:1px;
+background:var(--gold);
+}
+  
 nav a:hover{color:var(--gold)}
 
 section{
@@ -1211,6 +1236,29 @@ const storySection = document.querySelector('#story');
 if(storySection){
 storyObserver.observe(storySection);
 }
+
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    const sectionHeight = section.offsetHeight;
+
+    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
+    }
+  });
+});
   
 </script>
 
