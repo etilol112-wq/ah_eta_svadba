@@ -645,6 +645,17 @@ font-size:26px;
 color:var(--gold);
 font-style:italic;
 }
+
+.story-line{
+opacity:0;
+transform:translateY(30px);
+transition:all .8s ease;
+}
+
+.story-line.show{
+opacity:1;
+transform:none;
+}
   
 </style>
 </head>
@@ -1175,6 +1186,31 @@ threshold:0.15
 reveals.forEach(function(section){
 observer.observe(section);
 });
+
+/* появление строк истории по очереди */
+
+const storyLines = document.querySelectorAll('.story-line');
+
+const storyObserver = new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+
+storyLines.forEach((line, index)=>{
+setTimeout(()=>{
+line.classList.add('show');
+}, index * 400);
+});
+
+}
+});
+},{
+threshold:0.4
+});
+
+const storySection = document.querySelector('#story');
+if(storySection){
+storyObserver.observe(storySection);
+}
   
 </script>
 
