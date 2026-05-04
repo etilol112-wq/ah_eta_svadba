@@ -696,33 +696,32 @@ transform:scale(1.06);
 
 <h2>Наша история</h2>
 
-<div class="story-cinematic">
+.story{
+display:none;
+}
 
-<p>
-Всё началось с одного внезапного сообщения весной.
-</p>
+.story-cinematic{
+max-width:640px;
+margin:40px auto 0;
+text-align:center;
+display:flex;
+flex-direction:column;
+gap:26px;
+}
 
-<p>
-Сначала — разговоры до ночи,<br>
-потом — привычка быть рядом.
-</p>
+.story-cinematic p{
+font-family:var(--serif);
+font-size:22px;
+line-height:1.8;
+color:var(--muted);
+}
 
-<p>
-Мы даже не заметили,<br>
-как стали друг для друга домом.
-</p>
-
-<p>
-Научились быть командой,<br>
-поддерживать и идти вместе.
-</p>
-
-<p class="story-final">
-И теперь мы здесь —<br>
-в день, который ждали.
-</p>
-
-</div>
+.story-cinematic p.story-final{
+margin-top:10px;
+font-size:26px;
+color:var(--gold);
+font-style:italic;
+}
 
 </div>
 </section>
