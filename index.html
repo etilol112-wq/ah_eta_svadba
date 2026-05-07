@@ -1354,20 +1354,21 @@ storyObserver.observe(storySection);
 
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll("nav a");
+
 let lastActive = "";
-  
+
 window.addEventListener("scroll", () => {
 
   let current = "";
 
   sections.forEach(section => {
 
-    const sectionTop = section.offsetTop - 120;
+    const sectionTop = section.offsetTop - 140;
     const sectionHeight = section.offsetHeight;
 
     if (
-      pageYOffset >= sectionTop &&
-      pageYOffset < sectionTop + sectionHeight
+      window.pageYOffset >= sectionTop &&
+      window.pageYOffset < sectionTop + sectionHeight
     ) {
       current = section.getAttribute("id");
     }
@@ -1376,34 +1377,39 @@ window.addEventListener("scroll", () => {
 
   navLinks.forEach(link => {
 
-    link.classList.remove("active");
+    const href = link.getAttribute("href");
 
-    if (
-      link.getAttribute("href") === "#" + current &&
-      current !== lastActive
-    ) {
-
-      lastActive = current;
+    if (href === "#" + current) {
 
       link.classList.add("active");
 
-      /* плавный автоскролл меню */
-      const nav = document.querySelector("nav");
+      /* автоскролл только если раздел изменился */
+      if (current !== lastActive) {
 
-      clearTimeout(window.navScrollTimeout);
+        lastActive = current;
 
-      window.navScrollTimeout = setTimeout(() => {
+        const nav = document.querySelector("nav");
 
-        nav.scrollTo({
-          left:
-            link.offsetLeft -
-            nav.offsetWidth / 2 +
-            link.offsetWidth / 2,
+        clearTimeout(window.navScrollTimeout);
 
-          behavior: "smooth"
-        });
+        window.navScrollTimeout = setTimeout(() => {
 
-      }, 180);
+          nav.scrollTo({
+            left:
+              link.offsetLeft -
+              nav.offsetWidth / 2 +
+              link.offsetWidth / 2,
+
+            behavior: "smooth"
+          });
+
+        }, 180);
+
+      }
+
+    } else {
+
+      link.classList.remove("active");
 
     }
 
