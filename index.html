@@ -1378,10 +1378,16 @@ navLinks.forEach(link => {
     /* автоскролл меню */
 const nav = document.querySelector("nav");
 
-nav.scrollTo({
-  left: link.offsetLeft - nav.offsetWidth / 2 + link.offsetWidth / 2,
-  behavior: "smooth"
-});
+clearTimeout(window.navScrollTimeout);
+
+window.navScrollTimeout = setTimeout(() => {
+
+  nav.scrollTo({
+    left: link.offsetLeft - nav.offsetWidth / 2 + link.offsetWidth / 2,
+    behavior: "smooth"
+  });
+
+}, 120);
 
   }
 
