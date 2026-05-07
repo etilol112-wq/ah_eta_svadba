@@ -383,48 +383,55 @@ font-size:11px;
 transition:.35s ease;
 }
 
+/* route button = стиль hero-btn */
+
 .route-btn{
+all:unset;
 
 display:flex;
 align-items:center;
 justify-content:center;
 
 width:100%;
+max-width:320px;
 
-height:84px;
+height:58px;
 
-border-radius:28px;
+margin:auto;
 
-background:#3a1207;
+background:#341300;
 color:#fff;
 
-text-decoration:none;
+border-radius:18px;
 
-font-size:14px;
-letter-spacing:.22em;
+font-size:11px;
+font-weight:400;
+
+letter-spacing:.18em;
 text-transform:uppercase;
 
+cursor:pointer;
+
 transition:
-transform .25s ease,
-background .3s ease,
-box-shadow .35s ease;
+transform .35s ease,
+box-shadow .35s ease,
+background .35s ease;
 
 box-shadow:
-0 10px 25px rgba(58,18,7,.18);
+0 10px 30px rgba(52,19,0,.18);
 }
 
 .route-btn:hover{
+transform:translateY(-3px);
 
-transform:translateY(-2px);
-
-background:#4a1a0c;
+background:#4a1b00;
 
 box-shadow:
-0 18px 35px rgba(58,18,7,.24);
+0 18px 40px rgba(52,19,0,.25);
 }
 
 .route-btn:active{
-transform:scale(.985);
+transform:scale(.98);
 }
 
 .route a:hover{
