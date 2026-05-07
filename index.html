@@ -1376,11 +1376,12 @@ navLinks.forEach(link => {
     link.classList.add("active");
 
     /* автоскролл меню */
-    link.scrollIntoView({
-      behavior: "smooth",
-      inline: "center",
-      block: "nearest"
-    });
+const nav = document.querySelector("nav");
+
+nav.scrollTo({
+  left: link.offsetLeft - nav.offsetWidth / 2 + link.offsetWidth / 2,
+  behavior: "smooth"
+});
 
   }
 
