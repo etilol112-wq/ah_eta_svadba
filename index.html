@@ -1201,31 +1201,27 @@ setInterval(timer,1000);
 
 
 /* музыка */
-const music=document.getElementById('song');
+const music = document.getElementById('song');
 
-function toggleMusic(){
-const btn=document.getElementById('musicBtn');
+function toggleMusic() {
+  const btn = document.getElementById('musicBtn');
 
-if(music.paused){
-music.play();
-btn.innerHTML='❚❚ Пауза';
-btn.classList.add('playing');
-}else{
-music.pause();
-btn.innerHTML='♫ Наша мелодия';
-btn.classList.remove('playing');
+  if (music.paused) {
+    music.play()
+      .then(() => {
+        btn.innerHTML = '❚❚ Пауза';
+        btn.classList.add('playing');
+      })
+      .catch((err) => {
+        console.log('Ошибка воспроизведения:', err);
+      });
+
+  } else {
+    music.pause();
+    btn.innerHTML = '♫ Наша мелодия';
+    btn.classList.remove('playing');
+  }
 }
-}
-
-/* первый клик на странице тоже запускает */
-document.addEventListener(
-'click',
-function firstPlay(){
-music.play().catch(()=>{});
-document.removeEventListener('click',firstPlay);
-},
-{once:true}
-);
 
 /* reveal on scroll */
 
