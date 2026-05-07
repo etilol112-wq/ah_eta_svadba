@@ -1248,6 +1248,29 @@ function firstPlay(){
 {once:true}
 );
 
+document.addEventListener(
+'touchstart',
+function firstPlay(){
+
+  if(music.paused){
+
+    music.play().then(() => {
+
+      const btn = document.getElementById('musicBtn');
+
+      btn.innerHTML = '❚❚ Пауза';
+      btn.classList.add('playing');
+
+    }).catch(()=>{});
+
+  }
+
+  document.removeEventListener('touchstart', firstPlay);
+
+},
+{once:true}
+);
+
 /* reveal on scroll */
 
 const reveals = document.querySelectorAll('.reveal');
