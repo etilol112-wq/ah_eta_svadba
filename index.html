@@ -152,18 +152,52 @@ color:var(--muted);
 
 .hero-btn{
 margin-top:24px;
-display:inline-block;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+width:100%;
+max-width:520px;
+height:72px;
+
 text-decoration:none;
-border:1px solid var(--gold);
-padding:14px 38px;
-color:var(--text);
-background:transparent;
-font-size:11px;
+
+border:none;
+border-radius:24px;
+
+background:#341300;
+color:#fff;
+
+font-size:13px;
+font-weight:400;
 letter-spacing:.18em;
 text-transform:uppercase;
+
 cursor:pointer;
 
-transition:.35s ease;
+transition:
+transform .35s ease,
+box-shadow .35s ease,
+background .35s ease;
+
+box-shadow:
+0 10px 30px rgba(52,19,0,.18);
+
+}
+
+/* hover */
+.hero-btn:hover{
+transform:translateY(-3px);
+box-shadow:
+0 18px 40px rgba(52,19,0,.25);
+
+background:#4a1b00;
+}
+
+/* нажатие */
+.hero-btn:active{
+transform:scale(.98);
 }
 
 /* наведение */
@@ -877,18 +911,44 @@ p{
 @media(max-width:700px){
 
   p{
-    font-size:17px;
-    line-height:1.8;
+    font-size:18px;
+    line-height:1.9;
   }
 
+  /* текст внутри карточек */
   .card p,
   .info-card p,
   .chat-card p{
-    font-size:17px;
+    font-size:20px;
+    line-height:1.9;
   }
 
+  /* заголовки карточек */
+  .card h3,
+  .info-card h3,
+  .chat-card h3{
+    font-size:48px;
+    line-height:1.1;
+  }
+
+  /* римские цифры */
+  .roman{
+    font-size:52px !important;
+  }
+
+  /* подписи */
   .subtitle{
-    font-size:16px;
+    font-size:18px;
+    line-height:1.8;
+  }
+
+  /* кнопки */
+  .hero-btn,
+  .route-btn{
+    height:72px;
+    font-size:13px;
+    border-radius:24px;
+    letter-spacing:.18em;
   }
 
 }
