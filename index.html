@@ -1354,7 +1354,8 @@ storyObserver.observe(storySection);
 
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll("nav a");
-
+let lastActive = "";
+  
 window.addEventListener("scroll", () => {
   let current = "";
 
@@ -1371,21 +1372,36 @@ navLinks.forEach(link => {
 
   link.classList.remove("active");
 
-  if (link.getAttribute("href") === "#" + current) {
+  if (
+    link.getAttribute("href") === "#" + current &&
+    current !== lastActive
+  ) {
+
+    lastActive = current;
 
     link.classList.add("active");
 
-    /* автоскролл меню */
-const nav = document.querySelector("nav");
+    /* плавный автоскролл меню */
+    const nav = document.querySelector("nav");
 
-clearTimeout(window.navScrollTimeout);
+    clearTimeout(window.navScrollTimeout);
 
-window.navScrollTimeout = setTimeout(() => {
+    window.navScrollTimeout = setTimeout(() => {
 
-  nav.scrollTo({
-    left: link.offsetLeft - nav.offsetWidth / 2 + link.offsetWidth / 2,
-    behavior: "smooth"
-  });
+      nav.scrollTo({
+        left:
+          link.offsetLeft -
+          nav.offsetWidth / 2 +
+          link.offsetWidth / 2,
+
+        behavior: "smooth"
+      });
+
+    }, 180);
+
+  }
+
+});
 
 }, 120);
 
