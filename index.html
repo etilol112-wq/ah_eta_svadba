@@ -1357,57 +1357,57 @@ const navLinks = document.querySelectorAll("nav a");
 let lastActive = "";
   
 window.addEventListener("scroll", () => {
+
   let current = "";
 
   sections.forEach(section => {
+
     const sectionTop = section.offsetTop - 120;
     const sectionHeight = section.offsetHeight;
 
-    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+    if (
+      pageYOffset >= sectionTop &&
+      pageYOffset < sectionTop + sectionHeight
+    ) {
       current = section.getAttribute("id");
     }
+
   });
 
-navLinks.forEach(link => {
+  navLinks.forEach(link => {
 
-  link.classList.remove("active");
+    link.classList.remove("active");
 
-  if (
-    link.getAttribute("href") === "#" + current &&
-    current !== lastActive
-  ) {
+    if (
+      link.getAttribute("href") === "#" + current &&
+      current !== lastActive
+    ) {
 
-    lastActive = current;
+      lastActive = current;
 
-    link.classList.add("active");
+      link.classList.add("active");
 
-    /* плавный автоскролл меню */
-    const nav = document.querySelector("nav");
+      /* плавный автоскролл меню */
+      const nav = document.querySelector("nav");
 
-    clearTimeout(window.navScrollTimeout);
+      clearTimeout(window.navScrollTimeout);
 
-    window.navScrollTimeout = setTimeout(() => {
+      window.navScrollTimeout = setTimeout(() => {
 
-      nav.scrollTo({
-        left:
-          link.offsetLeft -
-          nav.offsetWidth / 2 +
-          link.offsetWidth / 2,
+        nav.scrollTo({
+          left:
+            link.offsetLeft -
+            nav.offsetWidth / 2 +
+            link.offsetWidth / 2,
 
-        behavior: "smooth"
-      });
+          behavior: "smooth"
+        });
 
-    }, 180);
+      }, 180);
 
-  }
+    }
 
-});
-
-}, 120);
-
-  }
-
-});
+  });
 
 });
   
